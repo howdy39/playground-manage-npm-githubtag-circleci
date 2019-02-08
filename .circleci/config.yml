@@ -20,31 +20,24 @@ jobs:
           root: ~/my_working_directory
           paths:
             - ./*
-  build:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/my_working_directory
-      - run: yarn run build
 
-  tagpush:
+  buildtag:
     <<: *defaults
     steps:
       - attach_workspace:
           at: ~/my_working_directory
-      - run: git add dist
+      - run: source scripts/build-tag.sh
 
 workflows:
   version: 2
   setup-test-and-deploy:
     jobs:
       - setup
-      - build:
-          requires:
-            - setup
-      - tagpush:
+      - buildtag:
           requires:
             - build
           filters:
+            tags:
+              only: /^v.*/
             branches:
-              ignore: master
+              ignore: /.*/
