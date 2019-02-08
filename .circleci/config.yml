@@ -21,7 +21,7 @@ jobs:
           paths:
             - ./*
 
-  buildtag:
+  release:
     <<: *defaults
     steps:
       - attach_workspace:
@@ -33,10 +33,10 @@ jobs:
 
 workflows:
   version: 2
-  setup-test-and-deploy:
+  setup-and-release:
     jobs:
       - setup
-      - buildtag:
+      - release:
           type: approval
           requires:
             - setup
