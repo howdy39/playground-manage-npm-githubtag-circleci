@@ -35,7 +35,7 @@ workflows:
       - setup
       - buildtag:
           requires:
-            - build
+            - setup
           filters:
             tags:
               only: /^v.*/
