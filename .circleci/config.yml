@@ -36,7 +36,10 @@ workflows:
   setup-and-release:
     jobs:
       - setup
-      - release:
+      - hold:
           type: approval
           requires:
             - setup
+      - release:
+          requires:
+            - hold
