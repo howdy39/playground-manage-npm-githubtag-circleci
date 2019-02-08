@@ -1,0 +1,50 @@
+version: 2
+defaults: &defaults
+  docker:
+    - image: howdy39/st-node-nightmare
+  working_directory: ~/my_working_directory
+
+jobs:
+  setup:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependencies-{{ checksum "yarn.lock" }}
+      - run: yarn install
+      - save_cache:
+          key: dependencies-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+      - persist_to_workspace:
+          root: ~/my_working_directory
+          paths:
+            - ./*
+  build:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/my_working_directory
+      - run: yarn run build
+
+  tagpush:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/my_working_directory
+      - run: git add dist
+
+workflows:
+  version: 2
+  setup-test-and-deploy:
+    jobs:
+      - setup
+      - build:
+          requires:
+            - setup
+      - tagpush:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: master
