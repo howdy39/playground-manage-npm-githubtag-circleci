@@ -6,7 +6,7 @@ echo "--------------"
 echo "TAG_NAME: $TAG_NAME"
 echo "--------------"
 
-#git config user.email "tatsuya.howdy@gmail.com"
+git config user.email "tatsuya.howdy@gmail.com"
 git config user.name "howdy39"
 
 git checkout master
