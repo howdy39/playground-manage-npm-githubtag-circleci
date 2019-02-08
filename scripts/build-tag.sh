@@ -13,7 +13,7 @@ git push origin :refs/tags/$CIRCLE_TAG
 
 yarn run build
 git add dist
-git commit -m "build $CIRCLE_TAG by CirclieCI"
+git commit -m "build $CIRCLE_TAG by CircleCI"
 
 git tag $CIRCLE_TAG
 git push origin $CIRCLE_TAG
