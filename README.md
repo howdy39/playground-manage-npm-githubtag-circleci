@@ -7,7 +7,7 @@ package.json.versionのバージョンアップとそれに伴うCIからのビ�
 ```
 # packake.jsonのバージョンとgitのタグを作る
 $ npm version [patch, minor, major]
-$ push origin <TAG_NAME>
+$ git push origin <TAG_NAME>
 ```
 
 ## 参考サイト

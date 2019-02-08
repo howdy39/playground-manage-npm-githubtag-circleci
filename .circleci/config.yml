@@ -32,7 +32,10 @@ workflows:
   version: 2
   setup-test-and-deploy:
     jobs:
-      - setup
+      - setup:
+          filters:
+            tags:
+              only: /^v.*/
       - buildtag:
           requires:
             - setup
