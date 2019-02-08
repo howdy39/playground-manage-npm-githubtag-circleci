@@ -5,8 +5,9 @@ package.json.versionのバージョンアップとそれに伴うCIからのビ�
 ## バージョンアップの方法
 
 ```
-# packake.jsonのバージョンとgitのタグを作る
+# packake.jsonのバージョンをあげる（タグも自動で作られる）
 $ npm version [patch, minor, major]
+# タグをpush
 $ git push origin <TAG_NAME>
 ```
 
