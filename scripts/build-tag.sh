@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
 
+TAG_NAME=$(npx -c 'echo "$npm_package_version"')
+
 echo "--------------"
-echo "CIRCLE_TAG: $CIRCLE_TAG"
+echo "TAG_NAME: $TAG_NAME"
 echo "--------------"
+
 
 git config user.email "tatsuya.howdy@gmail.com"
 git config user.name "howdy39"
 
-git checkout $CIRCLE_TAG
-git tag -d $CIRCLE_TAG
-git push origin :refs/tags/$CIRCLE_TAG
-
+git checkout master
 yarn run build
 git add dist
-git commit -m "build $CIRCLE_TAG by CircleCI"
+git commit -m "build $TAG_NAME by CircleCI"
 
-git tag $CIRCLE_TAG
-git push origin $CIRCLE_TAG
+git tag $TAG_NAME
+git push origin $TAG_NAME

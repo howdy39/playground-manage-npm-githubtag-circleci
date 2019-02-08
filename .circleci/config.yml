@@ -35,15 +35,8 @@ workflows:
   version: 2
   setup-test-and-deploy:
     jobs:
-      - setup:
-          filters:
-            tags:
-              only: /^v.*/
+      - setup
       - buildtag:
+          type: approval
           requires:
             - setup
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              ignore: /.*/
