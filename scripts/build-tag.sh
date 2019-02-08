@@ -4,6 +4,9 @@ echo "--------------"
 echo "CIRCLE_TAG: $CIRCLE_TAG"
 echo "--------------"
 
+# SSHのHost Key Verificationを無視
+echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+
 git config user.email "tatsuya.howdy@gmail.com"
 git config user.name "howdy39"
 
