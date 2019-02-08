@@ -26,6 +26,9 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/my_working_directory
+      - add_ssh_keys:
+          fingerprints:
+            - "43:c1:a8:9d:35:cc:e4:1d:47:8b:7d:ea:b3:4c:60:bc"
       - run: source scripts/build-tag.sh
 
 workflows:
