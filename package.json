@@ -1,6 +1,6 @@
 {
   "name": "playground-manage-npm-githubtag-circleci",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "index.js",
   "repository": "git@github.com:howdy39/playground-manage-npm-githubtag-circleci.git",
   "author": "howdy39 <howdy39@stores.jp>",
