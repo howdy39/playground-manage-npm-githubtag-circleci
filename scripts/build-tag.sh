@@ -1,18 +1,20 @@
 #!/usr/bin/env bash
 
-TAG=v1.0.2
+echo "--------------"
+echo "CIRCLE_TAG: $CIRCLE_TAG"
+echo "--------------"
 
 git config user.email "tatsuya.howdy@gmail.com"
 git config user.name "howdy39"
 
 git reset --hard HEAD
-git checkout $TAG
-git tag -d $TAG
-git push origin :refs/tags/$TAG
+git checkout $CIRCLE_TAG
+git tag -d $CIRCLE_TAG
+git push origin :refs/tags/$CIRCLE_TAG
 
 yarn run build
 git add dist
-git commit -m "build $TAG by CI"
+git commit -m "build $CIRCLE_TAG by CI"
 
-git tag $TAG
-git push origin $TAG
+git tag $CIRCLE_TAG
+git push origin $CIRCLE_TAG
