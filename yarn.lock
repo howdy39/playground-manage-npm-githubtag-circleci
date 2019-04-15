@@ -88,6 +88,10 @@ rimraf@^2.6.3:
   dependencies:
     glob "^7.1.3"
 
+storesjp-front-common@BracketInc/STORES.jp-Front-Common#v1.0.3:
+  version "1.0.3"
+  resolved "git+ssh://git@github.com/BracketInc/STORES.jp-Front-Common.git#8a2c873b58d245570e280d8a4a4e32cff82aae94"
+
 wrappy@1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"

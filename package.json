@@ -1,6 +1,6 @@
 {
   "name": "playground-manage-npm-githubtag-circleci",
-  "version": "1.0.13",
+  "version": "1.1.0",
   "main": "index.js",
   "repository": "git@github.com:howdy39/playground-manage-npm-githubtag-circleci.git",
   "author": "howdy39 <howdy39@stores.jp>",
@@ -11,5 +11,8 @@
   "devDependencies": {
     "mkdirp": "^0.5.1",
     "rimraf": "^2.6.3"
+  },
+  "dependencies": {
+    "storesjp-front-common": "BracketInc/STORES.jp-Front-Common#v1.0.3"
   }
 }
