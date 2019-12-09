@@ -61,4 +61,4 @@ workflows:
             - setup
           filters:
             branches:
-              only: dashboard-renewal
+              only: dashboard-renewal/master
