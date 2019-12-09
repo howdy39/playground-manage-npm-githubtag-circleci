@@ -14,8 +14,6 @@ echo "--------------"
 git config user.email "tatsuya.howdy@gmail.com"
 git config user.name "howdy39"
 
-rm -Rf dist
-
 yarn run build
 cat dist/piyo.txt
 git add dist
