@@ -16,4 +16,4 @@ cat dist/piyo.txt
 git add dist
 git commit -m "ビルド結果を登録 by CircleCI"
 
-git push origin/beta --force
+git push origin dashboard-renewal:beta --force
