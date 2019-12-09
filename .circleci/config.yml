@@ -46,16 +46,17 @@ workflows:
   setup-and-release:
     jobs:
       - setup
-      - hold:
-          type: approval
-          requires:
-            - setup
-      - release:
-          requires:
-            - hold
+      - deploy:
           filters:
             branches:
               only: master
+      - hold:
+          type: approval
+          requires:
+            - deploy
+      - release:
+          requires:
+            - hold
       - release-beta:
           requires:
             - setup
