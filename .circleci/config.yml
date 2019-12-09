@@ -31,16 +31,6 @@ jobs:
             mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
       - run: source scripts/build-tag.sh
 
-  release-beta:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/my_working_directory
-      - run:
-          command: |
-            mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
-      - run: source scripts/release-beta.sh
-
 workflows:
   version: 2
   setup-and-release:
@@ -57,9 +47,3 @@ workflows:
       - release:
           requires:
             - hold
-      - release-beta:
-          requires:
-            - setup
-          filters:
-            branches:
-              only: dashboard-renewal
