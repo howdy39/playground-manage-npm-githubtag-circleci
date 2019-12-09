@@ -10,16 +10,12 @@ git config user.email "tatsuya.howdy@gmail.com"
 git config user.name "howdy39"
 
 git fetch
-git checkout beta
 cat dist/piyo.txt
-git merge origin dashboard-renewal
-
-rm -Rf dist
-git commit -m "ビルド結果を削除 by CircleCI"
+git reset --hard $CIRCLE_SHA1
 
 yarn run build
 cat dist/piyo.txt
 git add dist
 git commit -m "ビルド結果を登録 by CircleCI"
 
-git push
+git push --force
