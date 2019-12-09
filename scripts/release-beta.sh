@@ -19,6 +19,6 @@ rm -Rf dist
 yarn run build
 cat dist/piyo.txt
 git add dist
-git commit -m "${CIRCLE_PR_NUMBER} をマージしました by CircleCI"
+git commit -m "${CIRCLE_PR_USERNAME} の ${CIRCLE_BUILD_URL} の変更をマージしました by CircleCI"
 
 git push origin dashboard-renewal:beta --force
