@@ -59,6 +59,6 @@ workflows:
       - release-beta:
           requires:
             - setup
-          filters:
-            branches:
-              only: dashboard-renewal/master
+      #     filters:
+      #       branches:
+      #         only: dashboard-renewal/master
