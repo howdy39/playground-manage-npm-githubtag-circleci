@@ -53,6 +53,9 @@ workflows:
       - release:
           requires:
             - hold
+          filters:
+            branches:
+              only: master
       - release-beta:
           requires:
             - setup
